@@ -20,45 +20,69 @@ class DataTheme {
           ),
           smallText1: GoogleFonts.montserrat(
             fontSize: 13,
-
             color: const Color(0xff555555),
             letterSpacing: 0.5,
             fontWeight: FontWeight.w300,
-
           ),
           buttonText1: GoogleFonts.montserrat(
             fontSize: 18,
-
             color: Colors.white,
             letterSpacing: 0.5,
             fontWeight: FontWeight.bold,
-
-
           ),
 
+          largeText3:
+          GoogleFonts.poppins(
+            fontSize: 48,
+            color: const Color(0xffEE7966),
+            letterSpacing: 3,
+            fontWeight: FontWeight.bold,
+            shadows: [
+              // Shadow(
+              //   // blurRadius: 10.0,
+              //   color: Color(0xffEE7966),
+              //   offset: Offset(2.0,2.0),
+              // )
+            ],
+
+          ),
         ),
       ],
       useMaterial3: true,
       scaffoldBackgroundColor: const Color(0xffFAFAFA),
       primaryColor: const Color(0xffEE7966),
       appBarTheme: const AppBarTheme(centerTitle: true),
-      // fontFamily: 'poppins',
       textTheme: const TextTheme(
-        displayLarge: TextStyle(fontSize: 48.0, fontFamily: 'poppins'),
+        displayLarge: TextStyle(
+          fontSize: 48.0,
+          color: const Color(0xff555555),
+          letterSpacing: 3,
+          fontWeight: FontWeight.bold,
+        ),
         displayMedium: TextStyle(
           fontSize: 32.0,
           fontFamily: 'poppins',
         ),
 
         /// appbar title
-        titleLarge: TextStyle(fontSize: 17.0, fontFamily: 'poppins'),
-        bodyLarge: TextStyle(fontSize: 15.0, fontFamily: 'poppins'),
-        bodySmall: TextStyle(fontSize: 13.0, fontFamily: 'poppins'),
-        bodyMedium: TextStyle(fontSize: 14.0, fontFamily: 'poppins'),
-        labelSmall: TextStyle(fontSize: 11.0, fontFamily: 'poppins'),
+        titleLarge: TextStyle(
+          fontSize: 17.0,
+        ),
+        bodyLarge: TextStyle(
+          fontSize: 15.0,
+        ),
+        bodySmall: TextStyle(
+          fontSize: 13.0,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14.0,
+        ),
+        labelSmall: TextStyle(
+          fontSize: 11.0,
+        ),
 
         /// button text
-        labelMedium: TextStyle(fontSize: 18.0, fontFamily: 'montserrat'),
+        labelMedium: TextStyle(fontSize: 18.0),
       ),
     );
   }

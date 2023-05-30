@@ -5,8 +5,9 @@ class VideoCallTheme extends ThemeExtension<VideoCallTheme> {
   final TextStyle? largeText2;
   final TextStyle? smallText1;
   final TextStyle? buttonText1;
+  final TextStyle? largeText3;
 
-  VideoCallTheme({this.largeText1, this.largeText2, this.smallText1,this.buttonText1});
+  VideoCallTheme({this.largeText1, this.largeText2, this.smallText1,this.buttonText1,this.largeText3});
 
   @override
   ThemeExtension<VideoCallTheme> copyWith({
@@ -14,9 +15,10 @@ class VideoCallTheme extends ThemeExtension<VideoCallTheme> {
     TextStyle? largeText1,
     TextStyle? smallText1,
     TextStyle? buttonText1,
+    TextStyle? largeText3,
   }) {
     return VideoCallTheme(
-        largeText2: largeText2, largeText1: largeText1, smallText1: smallText1,buttonText1:buttonText1);
+        largeText2: largeText2, largeText1: largeText1, smallText1: smallText1,buttonText1:buttonText1,largeText3:largeText3);
   }
 
   @override
@@ -31,6 +33,7 @@ class VideoCallTheme extends ThemeExtension<VideoCallTheme> {
       largeText2: TextStyle.lerp(largeText2, other.largeText2, t),
       smallText1: TextStyle.lerp(smallText1, other.smallText1, t),
       buttonText1: TextStyle.lerp(buttonText1, other.buttonText1, t),
+      largeText3: TextStyle.lerp(largeText3, other.largeText3, t),
     );
   }
 }
