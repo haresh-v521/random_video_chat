@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:video_call/core/routes/go_routes.dart';
+import 'package:video_call/core/string_constant.dart';
 import 'package:video_call/core/theme_data/theme_extension.dart';
-import 'package:video_call/core/widgets/common_widgets.dart';
+import 'package:video_call/core/widgets/auth_ui_button.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -20,23 +21,23 @@ class WelcomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Enjoy the",
+                  Text(StringConstant.enjoyTheText,
                       style: Theme.of(context)
                           .extension<VideoCallTheme>()!
                           .largeText1),
-                  Text("convenience of",
+                  Text(StringConstant.convenienceOfText,
                       style: Theme.of(context)
                           .extension<VideoCallTheme>()!
                           .largeText1),
-                  Text("communication",
+                  Text(StringConstant.communicationText,
                       style: Theme.of(context)
                           .extension<VideoCallTheme>()!
                           .largeText2),
-                  Text("easily and for free",
+                  Text(StringConstant.easilyAndForFreeText,
                       style: Theme.of(context)
                           .extension<VideoCallTheme>()!
                           .largeText1),
-                  Text("Easy and free, you can get all that here",
+                  Text(StringConstant.easilyAndForFreeYouCanGetText,
                       style: Theme.of(context)
                           .extension<VideoCallTheme>()!
                           .smallText1),
@@ -52,15 +53,14 @@ class WelcomePage extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
-
             Center(
-                child: GestureDetector(
-                  onTap: (){
-                    return context.go(AppRoutes.sign_up);
-                  },
-                  child: CommonWidgets().custom_button(
-                      context: context, button_name: 'Get Started'),
-                )),
+              child: GestureDetector(
+                onTap: () {
+                  return context.go(AppRoutes.signUp);
+                },
+                child: AuthUIButton(buttonName: StringConstant.getStartButtonText),
+              ),
+            ),
           ],
         ),
       ),

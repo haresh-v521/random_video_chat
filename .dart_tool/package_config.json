@@ -80,12 +80,6 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "flutter_screenutil",
-      "rootUri": "file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/flutter_screenutil-5.8.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "flutter_svg",
       "rootUri": "file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/flutter_svg-2.0.6",
       "packageUri": "lib/",
@@ -320,6 +314,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "swipe_cards",
+      "rootUri": "file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/swipe_cards-2.0.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "term_glyph",
       "rootUri": "file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/term_glyph-1.2.1",
       "packageUri": "lib/",
@@ -386,7 +386,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-05-29T12:02:20.268026Z",
+  "generated": "2023-05-30T09:48:06.760922Z",
   "generator": "pub",
   "generatorVersion": "3.0.2"
 }

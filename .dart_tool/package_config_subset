@@ -46,10 +46,6 @@ flutter_lints
 2.17
 file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/flutter_lints-2.0.1/
 file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/flutter_lints-2.0.1/lib/
-flutter_screenutil
-2.12
-file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/flutter_screenutil-5.8.2/
-file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/flutter_screenutil-5.8.2/lib/
 flutter_svg
 2.19
 file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/flutter_svg-2.0.6/
@@ -194,6 +190,10 @@ string_scanner
 2.18
 file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/
 file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/lib/
+swipe_cards
+2.17
+file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/swipe_cards-2.0.0+1/
+file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/swipe_cards-2.0.0+1/lib/
 term_glyph
 2.12
 file:///Users/flutterdev3/.pub-cache/hosted/pub.dev/term_glyph-1.2.1/

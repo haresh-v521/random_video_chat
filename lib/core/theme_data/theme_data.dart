@@ -31,21 +31,7 @@ class DataTheme {
             fontWeight: FontWeight.bold,
           ),
 
-          largeText3:
-          GoogleFonts.poppins(
-            fontSize: 48,
-            color: const Color(0xffEE7966),
-            letterSpacing: 3,
-            fontWeight: FontWeight.bold,
-            shadows: [
-              // Shadow(
-              //   // blurRadius: 10.0,
-              //   color: Color(0xffEE7966),
-              //   offset: Offset(2.0,2.0),
-              // )
-            ],
 
-          ),
         ),
       ],
       useMaterial3: true,
@@ -55,7 +41,7 @@ class DataTheme {
       textTheme: const TextTheme(
         displayLarge: TextStyle(
           fontSize: 48.0,
-          color: const Color(0xff555555),
+          color: Color(0xff555555),
           letterSpacing: 3,
           fontWeight: FontWeight.bold,
         ),
