@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:video_call/core/routes/go_routes.dart';
-import 'package:video_call/core/string_constant.dart';
-import 'package:video_call/core/theme_data/theme_extension.dart';
+import 'package:video_call/core/string/image_string_constant.dart';
+import 'package:video_call/core/string/text_string_constant.dart';
 import 'package:video_call/core/widgets/auth_ui_button.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -21,26 +21,19 @@ class WelcomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(StringConstant.enjoyTheText,
-                      style: Theme.of(context)
-                          .extension<VideoCallTheme>()!
-                          .largeText1),
-                  Text(StringConstant.convenienceOfText,
-                      style: Theme.of(context)
-                          .extension<VideoCallTheme>()!
-                          .largeText1),
-                  Text(StringConstant.communicationText,
-                      style: Theme.of(context)
-                          .extension<VideoCallTheme>()!
-                          .largeText2),
-                  Text(StringConstant.easilyAndForFreeText,
-                      style: Theme.of(context)
-                          .extension<VideoCallTheme>()!
-                          .largeText1),
-                  Text(StringConstant.easilyAndForFreeYouCanGetText,
-                      style: Theme.of(context)
-                          .extension<VideoCallTheme>()!
-                          .smallText1),
+                  Text(TextStringConstant.enjoyTheText,
+                      style: Theme.of(context).textTheme.displayLarge),
+                  Text(TextStringConstant.convenienceOfText,
+                      style: Theme.of(context).textTheme.displayLarge),
+                  Text(TextStringConstant.communicationText,
+                      style: Theme.of(context).textTheme.displayMedium),
+                  Text(TextStringConstant.easilyAndForFreeText,
+                      style: Theme.of(context).textTheme.displayLarge),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(TextStringConstant.easilyAndForFreeYouCanGetText,
+                      style: Theme.of(context).textTheme.displaySmall),
                 ],
               ),
             ),
@@ -49,16 +42,18 @@ class WelcomePage extends StatelessWidget {
               height: 425,
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                "assets/images/group.jpg",
+                ImageStringConstant.welcomePageImage,
                 fit: BoxFit.fill,
               ),
             ),
-            Center(
+            Align(
+              alignment: Alignment.bottomRight,
               child: GestureDetector(
                 onTap: () {
                   return context.go(AppRoutes.signUp);
                 },
-                child: AuthUIButton(buttonName: StringConstant.getStartButtonText),
+                child:
+                    AuthUIButton(buttonName: TextStringConstant.getStartButtonText),
               ),
             ),
           ],

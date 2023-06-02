@@ -1,9 +1,5 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:video_call/core/colors/color_style.dart';
-import 'package:video_call/core/theme_data/theme_extension.dart';
 
 class AuthUIButton extends StatelessWidget {
   final String buttonName;
@@ -30,7 +26,7 @@ class AuthUIButton extends StatelessWidget {
           ],
         ),
         child: Text(buttonName,
-            style: Theme.of(context).extension<VideoCallTheme>()!.buttonText1),
+            style: Theme.of(context).textTheme.bodyLarge),
       ),
     );
   }

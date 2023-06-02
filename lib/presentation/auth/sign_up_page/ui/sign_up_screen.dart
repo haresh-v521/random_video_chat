@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:video_call/core/colors/color_style.dart';
 import 'package:video_call/core/routes/go_routes.dart';
-import 'package:video_call/core/string_constant.dart';
+import 'package:video_call/core/string/text_string_constant.dart';
+import 'package:video_call/core/validation/textform_validation.dart';
 import 'package:video_call/core/widgets/auth_ui_button.dart';
+import 'package:video_call/core/widgets/google_facbook_row_widget.dart';
+import 'package:video_call/core/widgets/gradient_text.dart';
+import 'package:video_call/core/widgets/or_row_widget.dart';
 import 'package:video_call/core/widgets/text_filed_widget.dart';
 import 'package:video_call/presentation/auth/sign_up_page/business/provider/sign_up_provider.dart';
 
@@ -24,139 +27,102 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ChangeNotifierProvider<SignUpProvider>.value(
-       value: signUpProvider,
+        value: signUpProvider,
         child: Consumer<SignUpProvider>(
           builder: (context, signUpProvider, child) {
             return SingleChildScrollView(
               child: Padding(
-                padding:
-                const EdgeInsets.only(top: 50, left: 10, right: 10, bottom: 10),
+                padding: const EdgeInsets.only(
+                    top: 50, left: 10, right: 10, bottom: 10),
                 child: Form(
                   key: signUpProvider.formGlobalKey,
                   child: Column(
                     children: [
                       Center(
-                        child: GradientText(
-                          StringConstant.signUpText,
-                          gradientType: GradientType.linear,
-                          radius: 2.5,
-                          colors: [
-                            ColorStyle.primaryColor,
-                            ColorStyle.shadowColor,
-                          ],
-                          style: GoogleFonts.poppins(
-                            fontSize: 48.0,
-                            color: ColorStyle.primaryColor,
-                            letterSpacing: 3,
-                            fontWeight: FontWeight.w600,
-                            shadows: [
-                              Shadow(
-                                blurRadius: 0.3,
-                                color: ColorStyle.primaryColor,
-                              )
-                            ],
-                          ),
+                        child: GradientTextWidget(
+                          gradientTextName: TextStringConstant.signUpText,
                         ),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       CommonTextField(
-                        hintText: StringConstant.signHintText1,
+                        hintText: TextStringConstant.usernameText,
                         controllerName: signUpProvider.signUpUsername,
-                        validationMsg: "username",
+                        validationMsg: TextStringConstant.usernameText,
+                        validate: (value) {
+                          return TextFieldValidation.textEmptyValidation(
+                            value: value,
+                            validationMsg: TextStringConstant.usernameText,
+                          );
+                        },
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       CommonTextField(
-                        hintText: StringConstant.signHintText3,
+                        hintText: TextStringConstant.emailText,
                         controllerName: signUpProvider.signUpEmail,
-                        validationMsg: "email",
+                        validationMsg: TextStringConstant.emailText,
+                        validate: (value) {
+                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                              .hasMatch(value)) {
+                            return TextStringConstant.emailErrorMsg;
+                          }
+                          return TextFieldValidation.textEmptyValidation(
+                            value: value,
+                            validationMsg: TextStringConstant.emailText,
+                          );
+                        },
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       CommonTextField(
-                        hintText: StringConstant.signHintText2,
-                        controllerName: signUpProvider.signUpPassword,
-                        validationMsg: "password",
-                      ),
+                          hintText: TextStringConstant.passwordText,
+                          controllerName: signUpProvider.signUpPassword,
+                          validationMsg: TextStringConstant.passwordText,
+                          hideText: true,
+                          validate: (value) {
+                            return TextFieldValidation.textEmptyValidation(
+                              value: value,
+                              validationMsg: TextStringConstant.passwordText,
+                            );
+                          }),
                       const SizedBox(
                         height: 15,
                       ),
                       CommonTextField(
-                        hintText: StringConstant.signHintText4,
-                        controllerName: signUpProvider.signUpRepeatPassword,
-                        validationMsg: "repeat password",
-                      ),
+                          hintText: TextStringConstant.repeatPasswordText,
+                          controllerName: signUpProvider.signUpRepeatPassword,
+                          validationMsg: TextStringConstant.repeatPasswordText,
+                          hideText: true,
+                          validate: (value) {
+                            if (value != signUpProvider.signUpPassword.text) {
+                              return TextStringConstant.passwordErrorMsg;
+                            }
+                            return TextFieldValidation.textEmptyValidation(
+                              value: value,
+                              validationMsg:
+                                  TextStringConstant.repeatPasswordText,
+                            );
+                          }),
                       const SizedBox(
                         height: 30,
                       ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              margin: const EdgeInsets.only(
-                                  left: 10.0, right: 15.0),
-                              child: Divider(
-                                color: ColorStyle.primaryColor,
-                                height: 50,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            StringConstant.orText,
-                            style: TextStyle(
-                              color: ColorStyle.lightGreyColor,
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              margin: const EdgeInsets.only(
-                                  left: 15.0, right: 10.0),
-                              child: Divider(
-                                color: ColorStyle.primaryColor,
-                                height: 50,
-                              ),
-                            ),
-                          ),
-                        ],
+                      OrRowTextWidget.orRowText(),
+                      const SizedBox(
+                        height: 25,
                       ),
+                      GoogleFacebookRowWidget.googleFacebookRow(),
                       const SizedBox(
                         height: 25,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                            onTap: () {},
-                            child: Image.asset(
-                              "assets/images/google.jpg",
-                              height: 40,
-                              width: 40,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Image.asset(
-                            "assets/images/facebook.jpg",
-                            height: 40,
-                            width: 40,
-                            fit: BoxFit.cover,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
                           Text(
-                            StringConstant.alreadyHaveAccount,
+                            TextStringConstant.alreadyHaveAccount,
                             style: GoogleFonts.montserrat(
                               fontSize: 14,
                               color: ColorStyle.greyColor,
@@ -170,7 +136,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               return context.go(AppRoutes.signIn);
                             },
                             child: Text(
-                              StringConstant.signIntextButtonText,
+                              TextStringConstant.signInTextButtonText,
                               style: GoogleFonts.montserrat(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -181,18 +147,23 @@ class _SignUpPageState extends State<SignUpPage> {
                         ],
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 25,
                       ),
-                      Center(
-                        child: GestureDetector(
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Center(
+                          child: GestureDetector(
                             onTap: () {
-                              if (signUpProvider!.formGlobalKey.currentState!
+                              if (signUpProvider.formGlobalKey.currentState!
                                   .validate()) {
-                                // return context.go(AppRoutes.);
+                                return context.go(AppRoutes.signIn);
                               }
                             },
                             child: AuthUIButton(
-                                buttonName: StringConstant.signUpButtonText)),
+                                buttonName:
+                                    TextStringConstant.signUpButtonText),
+                          ),
+                        ),
                       ),
                     ],
                   ),

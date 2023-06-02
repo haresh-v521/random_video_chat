@@ -1,29 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:swipe_cards/swipe_cards.dart';
+import 'package:video_call/core/string/image_string_constant.dart';
+import 'package:video_call/core/string/text_string_constant.dart';
+import 'package:video_call/presentation/video_call_page/home_page/ui/home_screen.dart';
+import 'package:video_call/presentation/video_call_page/home_page/ui/widgets/dialog_function.dart';
 
 class HomeProvider extends ChangeNotifier {
   List imageList = [
-    "assets/images/image1.jpg",
-    "assets/images/image4.jpg",
-    "assets/images/image3.jpg",
-    "assets/images/image4.jpg",
-    "assets/images/image5.jpg"
+    ImageStringConstant.image1,
+    ImageStringConstant.image3,
+    ImageStringConstant.image4,
+    ImageStringConstant.image5,
+    ImageStringConstant.image1
   ];
 
   late MatchEngine matchEngine;
-  late List<SwipeItem> SwipeItems;
+  List<SwipeItem> swipeItems = [];
   late bool isNoItem = false;
 
-  void reset() {
-    SwipeItems = [];
-    for (var content in imageList) {
-      var swipeItem = SwipeItem(
-        content: content,
+  void swipeItemsFunction({required BuildContext context}) {
+    for (int i = 0; i < imageList.length; i++) {
+      swipeItems.add(
+        SwipeItem(
+          content: Content(text: imageList[i]),
+          likeAction: () {
+            actions(context, imageList[i], TextStringConstant.liked);
+          },
+          nopeAction: () {
+            actions(context, imageList[i], TextStringConstant.rejected);
+          },
+        ),
       );
-      SwipeItems.add(swipeItem);
-      notifyListeners();
     }
-    matchEngine = MatchEngine(swipeItems: SwipeItems);
+    matchEngine = MatchEngine(swipeItems: swipeItems);
     isNoItem = false;
     notifyListeners();
   }

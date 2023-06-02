@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:swipe_cards/swipe_cards.dart';
+import 'package:video_call/core/string/text_string_constant.dart';
 import 'package:video_call/presentation/video_call_page/home_page/business/providers/home_provider.dart';
-import 'package:video_call/presentation/welcome_page/ui/welcome_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    homeProvider.reset();
+    homeProvider.swipeItemsFunction(context: context);
   }
 
   @override
@@ -31,8 +31,8 @@ class _HomePageState extends State<HomePage> {
             body: Container(
               padding: const EdgeInsets.all(20),
               child: homeProvider.isNoItem
-                  ? const Center(
-                      child: Text('No Data Found'),
+                  ? Center(
+                      child: Text(TextStringConstant.noDataFound),
                     )
                   : Stack(
                       alignment: Alignment.bottomCenter,
@@ -59,14 +59,9 @@ class _HomePageState extends State<HomePage> {
                               );
                             },
                             matchEngine: homeProvider.matchEngine,
-                           
-
                             onStackFinished: () {
-
                               homeProvider.noIteam();
-                              // setState(() {
-                              //   provider.isNoItem = true;
-                              // });
+
                             },
                           ),
                         ),
@@ -78,4 +73,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+class Content {
+  final String? text;
+  Content({this.text});
 }
