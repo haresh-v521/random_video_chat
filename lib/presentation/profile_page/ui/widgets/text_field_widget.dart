@@ -1,14 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_call/core/colors/color_style.dart';
 
 class CustomTextField {
   static Widget customText(
       {required TextEditingController controllerName,
-      required String hintText,required BuildContext context}) {
+      required String hintText,required BuildContext context, bool? extra}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: TextFormField(
+
+        maxLines: extra != null ? null : 1,
+        keyboardType: extra != null ?
+        TextInputType.multiline : TextInputType.text,
         cursorColor: ColorStyle.lightGreyColor,
         style: Theme.of(context).textTheme.titleMedium,
         autovalidateMode: AutovalidateMode.onUserInteraction,

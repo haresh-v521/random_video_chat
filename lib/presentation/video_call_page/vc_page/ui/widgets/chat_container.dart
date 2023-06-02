@@ -69,7 +69,7 @@ class _ChatContainerState extends State<ChatContainer> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Padding(
@@ -121,13 +121,13 @@ class _ChatContainerState extends State<ChatContainer> {
                                     chatProvider.myFocusNode.requestFocus();
                                     chatProvider.hideShowEmoji();
                                   },
-                                  icon: Icon(Icons.emoji_emotions),
+                                  icon: const Icon(Icons.emoji_emotions),
                                 ),
                                 IconButton(
                                   onPressed: () async {},
-                                  icon: Icon(Icons.send),
+                                  icon: const Icon(Icons.send),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                               ],
@@ -135,7 +135,7 @@ class _ChatContainerState extends State<ChatContainer> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       chatProvider.isShowEmoji

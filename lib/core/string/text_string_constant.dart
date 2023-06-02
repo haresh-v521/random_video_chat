@@ -1,5 +1,4 @@
-class TextStringConstant
-{
+class TextStringConstant {
   /// boarding , sign in , sign up text
   static String signInText = "Sign In";
   static String usernameText = "username";
@@ -18,7 +17,8 @@ class TextStringConstant
   static String convenienceOfText = "convenience of";
   static String communicationText = "communicating";
   static String easilyAndForFreeText = "easily and for free";
-  static String easilyAndForFreeYouCanGetText = "Easy and free, you can get all that here";
+  static String easilyAndForFreeYouCanGetText =
+      "Easy and free, you can get all that here";
   static String getStartButtonText = "Get Started";
 
   /// chat text
@@ -28,11 +28,6 @@ class TextStringConstant
   static String pleaseEnterText = "Please enter";
   static String emailErrorMsg = "Please enter valid email";
   static String passwordErrorMsg = "Password are not match";
-
-  static String signUpUserValidationName = "signUpUserName";
-  static String signUpEmailValidationName = "signUpEmail";
-  static String signUpPasswordValidationName = "signUpPassword";
-  static String signUpRepeatPasswordValidationName = "signUpRepeatPassword";
 
   /// swipe images text
   static String testing = "testing";
@@ -50,6 +45,7 @@ class TextStringConstant
   static String profileText = "Profile";
   static String responsibleGamingText = "Responsible Gaming";
   static String helpDeskText = "Helpdesk";
+  static String historyText = "History";
 
   /// profile text
   static String profileTitleText = "Profile";
@@ -57,4 +53,10 @@ class TextStringConstant
   static String nameBioText = "Bio : ";
   static String hintNameLabelText = "Enter name";
   static String hintBioLabelText = "Enter bio";
+  static String submitText = "Submit";
+
+  /// history text
+  static String historyTitleText = "History";
+  static String palashPandyaText = "Palash Pandya";
+  static String timeForCallingText = "7:00 PM";
 }

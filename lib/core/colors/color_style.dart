@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class ColorStyle
@@ -16,4 +14,5 @@ class ColorStyle
    static Color dividerColor = const Color(0xff484848);
    static Color fullBlackColor = Colors.black;
    static Color greyTextColor = const Color(0xff444444);
+   static Color subtitleTextColor = const Color(0xff959595);
 }

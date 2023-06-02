@@ -27,7 +27,6 @@ class CommonTextField extends StatelessWidget {
         style: Theme.of(context).textTheme.labelSmall,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) => validate(value),
-
         controller: controllerName,
         decoration: InputDecoration(
           hintText: hintText,

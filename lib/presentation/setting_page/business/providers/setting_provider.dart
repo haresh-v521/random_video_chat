@@ -18,7 +18,7 @@ class SettingProvider extends ChangeNotifier {
   ];
 
   bool isSwitched = false;
-  void chageSwitch()
+  void changeSwitch()
   {
     isSwitched=!isSwitched;
     notifyListeners();
@@ -28,11 +28,13 @@ class SettingProvider extends ChangeNotifier {
     ImageStringConstant.profileImage,
     ImageStringConstant.gamingImage,
     ImageStringConstant.helpImage,
+    ImageStringConstant.historyImage,
   ];
 
   List textList2 =[
     TextStringConstant.profileText,
     TextStringConstant.responsibleGamingText,
     TextStringConstant.helpDeskText,
+    TextStringConstant.historyText
   ];
 }

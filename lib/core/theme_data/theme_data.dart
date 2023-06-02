@@ -5,6 +5,7 @@ import 'package:video_call/core/colors/color_style.dart';
 class DataTheme {
   themeData() {
     return ThemeData(
+
       useMaterial3: true,
       scaffoldBackgroundColor: ColorStyle.backgroundColor,
       primaryColor: ColorStyle.primaryColor,
@@ -70,9 +71,11 @@ class DataTheme {
           color: ColorStyle.fullBlackColor,
           letterSpacing: 0.3,
         ),
-
         titleMedium: GoogleFonts.poppins(
-            color: ColorStyle.greyTextColor,fontSize: 16)
+            color: ColorStyle.greyTextColor,fontSize: 16),
+
+          headlineMedium: GoogleFonts.poppins(
+              color: ColorStyle.subtitleTextColor ,fontSize: 12)
       ),
     );
   }

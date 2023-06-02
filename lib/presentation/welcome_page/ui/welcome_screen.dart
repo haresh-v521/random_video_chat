@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:video_call/core/routes/go_routes.dart';
 import 'package:video_call/core/string/image_string_constant.dart';
 import 'package:video_call/core/string/text_string_constant.dart';
-import 'package:video_call/core/widgets/auth_ui_button.dart';
+import 'package:video_call/core/widgets/custom_button.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class WelcomePage extends StatelessWidget {
                       style: Theme.of(context).textTheme.displayMedium),
                   Text(TextStringConstant.easilyAndForFreeText,
                       style: Theme.of(context).textTheme.displayLarge),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(TextStringConstant.easilyAndForFreeYouCanGetText,

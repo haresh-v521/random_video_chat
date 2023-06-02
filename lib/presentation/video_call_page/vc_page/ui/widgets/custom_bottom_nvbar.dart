@@ -24,7 +24,7 @@ class _CustomContainerState extends State<CustomContainer> {
           return Scaffold(
             backgroundColor: ColorStyle.transparentColor,
             body: chatProvider.isChat
-                ? ChatContainer()
+                ? const ChatContainer()
                 : Padding(
                     padding: const EdgeInsets.only(left: 20,right: 20,bottom: 20),
                     child: Align(
@@ -45,11 +45,11 @@ class _CustomContainerState extends State<CustomContainer> {
                               width: 40,
                               fit: BoxFit.cover,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.mic,
                               size: 35,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.videocam,
                               size: 35,
                             ),

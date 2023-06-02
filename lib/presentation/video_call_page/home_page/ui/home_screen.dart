@@ -29,43 +29,38 @@ class _HomePageState extends State<HomePage> {
         builder: (context, homeProvider, child) {
           return Scaffold(
             body: Container(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
               child: homeProvider.isNoItem
                   ? Center(
                       child: Text(TextStringConstant.noDataFound),
                     )
-                  : Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 60, horizontal: 20),
-                          child: SwipeCards(
-                            itemBuilder: (BuildContext context, int index) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 30, ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(25),
-                                  child: Container(
-                                    height: double.infinity,
-                                    width: double.infinity,
-                                    child: Image.asset(
-                                      homeProvider.imageList[index],
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                  : Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 50, horizontal: 25),
+                      child: SwipeCards(
+                        itemBuilder: (BuildContext context, int index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                              top: 30,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(25),
+                              child: SizedBox(
+                                height: double.infinity,
+                                width: double.infinity,
+                                child: Image.asset(
+                                  homeProvider.imageList[index],
+                                  fit: BoxFit.cover,
                                 ),
-                              );
-                            },
-                            matchEngine: homeProvider.matchEngine,
-                            onStackFinished: () {
-                              homeProvider.noIteam();
-
-                            },
-                          ),
-                        ),
-                      ],
+                              ),
+                            ),
+                          );
+                        },
+                        matchEngine: homeProvider.matchEngine,
+                        onStackFinished: () {
+                          homeProvider.noIteam();
+                        },
+                      ),
                     ),
             ),
           );
@@ -77,5 +72,6 @@ class _HomePageState extends State<HomePage> {
 
 class Content {
   final String? text;
+
   Content({this.text});
 }

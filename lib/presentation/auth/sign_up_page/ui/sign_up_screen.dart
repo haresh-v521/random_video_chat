@@ -6,7 +6,7 @@ import 'package:video_call/core/colors/color_style.dart';
 import 'package:video_call/core/routes/go_routes.dart';
 import 'package:video_call/core/string/text_string_constant.dart';
 import 'package:video_call/core/validation/textform_validation.dart';
-import 'package:video_call/core/widgets/auth_ui_button.dart';
+import 'package:video_call/core/widgets/custom_button.dart';
 import 'package:video_call/core/widgets/google_facbook_row_widget.dart';
 import 'package:video_call/core/widgets/gradient_text.dart';
 import 'package:video_call/core/widgets/or_row_widget.dart';

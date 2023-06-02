@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_call/core/colors/color_style.dart';
-import 'package:video_call/presentation/video_call_page/home_page/business/providers/bottom_navigation_provider.dart';
+import 'package:video_call/core/widgets/bottom_navbar/business/provider/bottom_navigation_provider.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -22,12 +22,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: Consumer<BottomNavigationProvider>(
           builder: (context, bottomNavProvider, child) {
             return Center(
-              child: bottomNavProvider.widgetOptions.elementAt(bottomNavProvider.selectedIndex),
+              child: bottomNavProvider.widgetOptions
+                  .elementAt(bottomNavProvider.selectedIndex),
             );
           },
         ),
       ),
-      bottomNavigationBar: ChangeNotifierProvider<BottomNavigationProvider>.value(
+      bottomNavigationBar:
+          ChangeNotifierProvider<BottomNavigationProvider>.value(
         value: bottomNavigationProvider,
         child: Consumer<BottomNavigationProvider>(
           builder: (context, bottomNavProvider, child) {

@@ -6,7 +6,7 @@ class BottomNavigationProvider extends ChangeNotifier {
   int selectedIndex = 0;
   List widgetOptions = [
     const HomePage(),
-    const SettingScreen()
+    const SettingScreen(),
   ];
 
   void onItemTapped(int index) {

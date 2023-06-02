@@ -19,7 +19,7 @@ class VcScreen extends StatelessWidget {
           builder: (context, chatProvider, child) {
             return Stack(
               children: [
-                Container(
+                SizedBox(
                   height: double.infinity,
                   width: double.infinity,
                   child: Image.asset(
@@ -38,7 +38,7 @@ class VcScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                CustomContainer(),
+                const CustomContainer(),
               ],
             );
           },
