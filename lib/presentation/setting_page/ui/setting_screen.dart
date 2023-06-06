@@ -99,8 +99,6 @@ class _SettingScreenState extends State<SettingScreen> {
                                 ),
                               );
                             }
-
-
                         },
                         child: ListTile(
                           leading: SizedBox(

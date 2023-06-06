@@ -8,7 +8,6 @@ class CustomTextField {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: TextFormField(
-
         maxLines: extra != null ? null : 1,
         keyboardType: extra != null ?
         TextInputType.multiline : TextInputType.text,

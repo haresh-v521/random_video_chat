@@ -30,143 +30,152 @@ class _SignUpPageState extends State<SignUpPage> {
         value: signUpProvider,
         child: Consumer<SignUpProvider>(
           builder: (context, signUpProvider, child) {
-            return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 50, left: 10, right: 10, bottom: 10),
-                child: Form(
-                  key: signUpProvider.formGlobalKey,
-                  child: Column(
-                    children: [
-                      Center(
-                        child: GradientTextWidget(
-                          gradientTextName: TextStringConstant.signUpText,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CommonTextField(
-                        hintText: TextStringConstant.usernameText,
-                        controllerName: signUpProvider.signUpUsername,
-                        validationMsg: TextStringConstant.usernameText,
-                        validate: (value) {
-                          return TextFieldValidation.textEmptyValidation(
-                            value: value,
-                            validationMsg: TextStringConstant.usernameText,
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CommonTextField(
-                        hintText: TextStringConstant.emailText,
-                        controllerName: signUpProvider.signUpEmail,
-                        validationMsg: TextStringConstant.emailText,
-                        validate: (value) {
-                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                              .hasMatch(value)) {
-                            return TextStringConstant.emailErrorMsg;
-                          }
-                          return TextFieldValidation.textEmptyValidation(
-                            value: value,
-                            validationMsg: TextStringConstant.emailText,
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CommonTextField(
-                          hintText: TextStringConstant.passwordText,
-                          controllerName: signUpProvider.signUpPassword,
-                          validationMsg: TextStringConstant.passwordText,
-                          hideText: true,
-                          validate: (value) {
-                            return TextFieldValidation.textEmptyValidation(
-                              value: value,
-                              validationMsg: TextStringConstant.passwordText,
-                            );
-                          }),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CommonTextField(
-                          hintText: TextStringConstant.repeatPasswordText,
-                          controllerName: signUpProvider.signUpRepeatPassword,
-                          validationMsg: TextStringConstant.repeatPasswordText,
-                          hideText: true,
-                          validate: (value) {
-                            if (value != signUpProvider.signUpPassword.text) {
-                              return TextStringConstant.passwordErrorMsg;
-                            }
-                            return TextFieldValidation.textEmptyValidation(
-                              value: value,
-                              validationMsg:
-                                  TextStringConstant.repeatPasswordText,
-                            );
-                          }),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      OrRowTextWidget.orRowText(),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      GoogleFacebookRowWidget.googleFacebookRow(),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+            return Padding(
+              padding: const EdgeInsets.only(
+                  top: 50, left: 10, right: 10, bottom: 10),
+              child: Form(
+                key: signUpProvider.formGlobalKey,
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 7,
+                      child: Column(
                         children: [
-                          Text(
-                            TextStringConstant.alreadyHaveAccount,
-                            style: GoogleFonts.montserrat(
-                              fontSize: 14,
-                              color: ColorStyle.greyColor,
+                          Center(
+                            child: GradientTextWidget(
+                              gradientTextName: TextStringConstant.signUpText,
                             ),
                           ),
                           const SizedBox(
-                            width: 5,
+                            height: 15,
                           ),
-                          InkWell(
-                            onTap: () {
-                              return context.go(AppRoutes.signIn);
+                          CommonTextField(
+                            hintText: TextStringConstant.usernameText,
+                            controllerName: signUpProvider.signUpUsername,
+                            validationMsg: TextStringConstant.usernameText,
+                            validate: (value) {
+                              return TextFieldValidation.textEmptyValidation(
+                                value: value,
+                                validationMsg: TextStringConstant.usernameText,
+                              );
                             },
-                            child: Text(
-                              TextStringConstant.signInTextButtonText,
-                              style: GoogleFonts.montserrat(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: ColorStyle.primaryColor,
-                              ),
-                            ),
-                          )
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          CommonTextField(
+                            hintText: TextStringConstant.emailText,
+                            controllerName: signUpProvider.signUpEmail,
+                            validationMsg: TextStringConstant.emailText,
+                            validate: (value) {
+                              if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                                  .hasMatch(value)) {
+                                return TextStringConstant.emailErrorMsg;
+                              }
+                              return TextFieldValidation.textEmptyValidation(
+                                value: value,
+                                validationMsg: TextStringConstant.emailText,
+                              );
+                            },
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          CommonTextField(
+                              hintText: TextStringConstant.passwordText,
+                              controllerName: signUpProvider.signUpPassword,
+                              validationMsg: TextStringConstant.passwordText,
+                              hideText: true,
+                              validate: (value) {
+                                return TextFieldValidation.textEmptyValidation(
+                                  value: value,
+                                  validationMsg:
+                                      TextStringConstant.passwordText,
+                                );
+                              }),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          CommonTextField(
+                              hintText: TextStringConstant.repeatPasswordText,
+                              controllerName:
+                                  signUpProvider.signUpRepeatPassword,
+                              validationMsg:
+                                  TextStringConstant.repeatPasswordText,
+                              hideText: true,
+                              validate: (value) {
+                                if (value !=
+                                    signUpProvider.signUpPassword.text) {
+                                  return TextStringConstant.passwordErrorMsg;
+                                }
+                                return TextFieldValidation.textEmptyValidation(
+                                  value: value,
+                                  validationMsg:
+                                      TextStringConstant.repeatPasswordText,
+                                );
+                              }),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          OrRowTextWidget.orRowText(),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          GoogleFacebookRowWidget.googleFacebookRow(),
                         ],
                       ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              if (signUpProvider.formGlobalKey.currentState!
-                                  .validate()) {
-                                return context.go(AppRoutes.signIn);
-                              }
-                            },
-                            child: AuthUIButton(
-                                buttonName:
-                                    TextStringConstant.signUpButtonText),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                TextStringConstant.alreadyHaveAccount,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 14,
+                                  color: ColorStyle.greyColor,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  return context.go(AppRoutes.signIn);
+                                },
+                                child: Text(
+                                  TextStringConstant.signInTextButtonText,
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorStyle.primaryColor,
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
-                        ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Center(
+                            child: GestureDetector(
+                              onTap: () {
+                                if (signUpProvider.formGlobalKey.currentState!
+                                    .validate()) {
+                                  return context.go(AppRoutes.signIn);
+                                }
+                              },
+                              child: CustomButton(
+                                  buttonName:
+                                      TextStringConstant.signUpButtonText),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
             );

@@ -5,7 +5,6 @@ import 'package:video_call/core/colors/color_style.dart';
 class DataTheme {
   themeData() {
     return ThemeData(
-
       useMaterial3: true,
       scaffoldBackgroundColor: ColorStyle.backgroundColor,
       primaryColor: ColorStyle.primaryColor,

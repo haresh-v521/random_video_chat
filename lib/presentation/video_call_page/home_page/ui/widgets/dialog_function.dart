@@ -11,18 +11,16 @@ Widget buttonWidget(IconData icon, Color color) {
     size: 45,
   );
 }
-
 actions(BuildContext context, String name, type) {
   showDialog(
     context: context,
     builder: (context) {
       Future.delayed(const Duration(seconds: 1), () {
         Navigator.of(context).pop(true);
-        if (type == 'Liked') {
+        if (type == TextStringConstant.dialogText) {
           return context.go(AppRoutes.vcScreen);
         }
       });
-
       return AlertDialog(
         content: buttonWidget(
             type == TextStringConstant.liked ? Icons.done : Icons.close,

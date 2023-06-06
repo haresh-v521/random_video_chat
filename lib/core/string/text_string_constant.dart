@@ -59,4 +59,7 @@ class TextStringConstant {
   static String historyTitleText = "History";
   static String palashPandyaText = "Palash Pandya";
   static String timeForCallingText = "7:00 PM";
+
+  /// call active and call rejected dialog text
+ static String dialogText = "Liked";
 }

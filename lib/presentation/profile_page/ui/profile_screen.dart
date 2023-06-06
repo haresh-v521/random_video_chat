@@ -106,7 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       onTap: () {
                         Navigator.of(context).pop(true);
                       },
-                      child: AuthUIButton(
+                      child: CustomButton(
                           buttonName: TextStringConstant.submitText),
                     ),
                   ],
@@ -116,7 +116,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
-
     );
   }
 }

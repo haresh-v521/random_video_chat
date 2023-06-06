@@ -30,105 +30,115 @@ class _SignInPageState extends State<SignInPage> {
         value: signInProvider,
         child: Consumer<SignInProvider>(
           builder: (context, signInProvider, child) {
-            return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 50, left: 10, right: 10, bottom: 10),
-                child: Form(
-                  key: signInProvider.formGlobalKey,
-                  child: Column(
-                    children: [
-                      Center(
-                        child: GradientTextWidget(
-                          gradientTextName: TextStringConstant.signInText,
+            return Padding(
+              padding: const EdgeInsets.only(
+                  top: 50, left: 10, right: 10, bottom: 10),
+              child: Form(
+                key: signInProvider.formGlobalKey,
+                child: Column(
+                  children: [
+                  Expanded(
+                    flex: 7,
+                    child: Column(
+                      children: [
+                        Center(
+                          child: GradientTextWidget(
+                            gradientTextName: TextStringConstant.signInText,
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CommonTextField(
-                        hintText: TextStringConstant.usernameText,
-                        controllerName: signInProvider.signInUsername,
-                        validationMsg: TextStringConstant.usernameText,
-                          validate:  (value){
-                            return TextFieldValidation.textEmptyValidation(
-                              value: value,
-                              validationMsg: TextStringConstant.usernameText,
-                            );
-                          }
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      CommonTextField(
-                        hintText: TextStringConstant.passwordText,
-                        controllerName: signInProvider.signInPassword,
-                        validationMsg: TextStringConstant.passwordText,
-                          hideText: true,
-                          validate:  (value){
-                            return TextFieldValidation.textEmptyValidation(
-                              value: value,
-                              validationMsg: TextStringConstant.passwordText,
-                            );
-                          }
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      OrRowTextWidget.orRowText(),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      GoogleFacebookRowWidget.googleFacebookRow(),
-                      const SizedBox(
-                        height: 180,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        CommonTextField(
+                            hintText: TextStringConstant.usernameText,
+                            controllerName: signInProvider.signInUsername,
+                            validationMsg: TextStringConstant.usernameText,
+                            validate:  (value){
+                              return TextFieldValidation.textEmptyValidation(
+                                value: value,
+                                validationMsg: TextStringConstant.usernameText,
+                              );
+                            }
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        CommonTextField(
+                            hintText: TextStringConstant.passwordText,
+                            controllerName: signInProvider.signInPassword,
+                            validationMsg: TextStringConstant.passwordText,
+                            hideText: true,
+                            validate:  (value){
+                              return TextFieldValidation.textEmptyValidation(
+                                value: value,
+                                validationMsg: TextStringConstant.passwordText,
+                              );
+                            }
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        OrRowTextWidget.orRowText(),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        GoogleFacebookRowWidget.googleFacebookRow(),
+                      ],
+                    ),
+                  ),
+                    Expanded(
+                      child: Column(
+
                         children: [
-                          Text(
-                            TextStringConstant.dontHaveAnyAccountText,
-                            style: GoogleFonts.montserrat(
-                              fontSize: 14,
-                              color: ColorStyle.greyColor,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                TextStringConstant.dontHaveAnyAccountText,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 14,
+                                  color: ColorStyle.greyColor,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              InkWell(
+                                onTap: (){
+                                  return context.go(AppRoutes.signUp);
+                                },
+                                child: Text(
+                                  TextStringConstant.signUpTextButtonText,
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorStyle.primaryColor,
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                           const SizedBox(
-                            width: 5,
+                            height: 20,
                           ),
-                          InkWell(
-                            onTap: (){
-                              return context.go(AppRoutes.signUp);
-                            },
-                            child: Text(
-                              TextStringConstant.signUpTextButtonText,
-                              style: GoogleFonts.montserrat(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: ColorStyle.primaryColor,
+                          Center(
+                            child: GestureDetector(
+                              onTap: () {
+                                if (signInProvider.formGlobalKey.currentState!
+                                    .validate()) {
+                                  return context.go(AppRoutes.bottomBar);
+                                }
+                              },
+                              child: CustomButton(
+                                buttonName: TextStringConstant.signInButtonText,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            if (signInProvider.formGlobalKey.currentState!
-                                .validate()) {
-                              return context.go(AppRoutes.bottomBar);
-                            }
-                          },
-                          child: AuthUIButton(
-                            buttonName: TextStringConstant.signInButtonText,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+
+                  ],
                 ),
               ),
             );

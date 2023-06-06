@@ -36,12 +36,12 @@ class _HomePageState extends State<HomePage> {
                     )
                   : Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 50, horizontal: 25),
+                          vertical: 20, horizontal: 5),
                       child: SwipeCards(
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: const EdgeInsets.only(
-                              top: 30,
+                              top: 10,
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(25),
@@ -72,6 +72,5 @@ class _HomePageState extends State<HomePage> {
 
 class Content {
   final String? text;
-
   Content({this.text});
 }

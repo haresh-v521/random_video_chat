@@ -11,53 +11,62 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 35, left: 25, right: 18, bottom: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(TextStringConstant.enjoyTheText,
-                      style: Theme.of(context).textTheme.displayLarge),
-                  Text(TextStringConstant.convenienceOfText,
-                      style: Theme.of(context).textTheme.displayLarge),
-                  Text(TextStringConstant.communicationText,
-                      style: Theme.of(context).textTheme.displayMedium),
-                  Text(TextStringConstant.easilyAndForFreeText,
-                      style: Theme.of(context).textTheme.displayLarge),
-                  const SizedBox(
-                    height: 5,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 7,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 35, left: 25, right: 18, bottom: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(TextStringConstant.enjoyTheText,
+                          style: Theme.of(context).textTheme.displayLarge),
+                      Text(TextStringConstant.convenienceOfText,
+                          style: Theme.of(context).textTheme.displayLarge),
+                      Text(TextStringConstant.communicationText,
+                          style: Theme.of(context).textTheme.displayMedium),
+                      Text(TextStringConstant.easilyAndForFreeText,
+                          style: Theme.of(context).textTheme.displayLarge),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(TextStringConstant.easilyAndForFreeYouCanGetText,
+                          style: Theme.of(context).textTheme.displaySmall),
+                    ],
                   ),
-                  Text(TextStringConstant.easilyAndForFreeYouCanGetText,
-                      style: Theme.of(context).textTheme.displaySmall),
-                ],
-              ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  height: 425,
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    ImageStringConstant.welcomePageImage,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ],
             ),
-            Container(
-              alignment: Alignment.center,
-              height: 425,
-              width: MediaQuery.of(context).size.width,
-              child: Image.asset(
-                ImageStringConstant.welcomePageImage,
-                fit: BoxFit.fill,
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: GestureDetector(
+          ),
+          Expanded(
+            child: Column(children: [
+              GestureDetector(
                 onTap: () {
                   return context.go(AppRoutes.signUp);
                 },
                 child:
-                    AuthUIButton(buttonName: TextStringConstant.getStartButtonText),
+                CustomButton(buttonName: TextStringConstant.getStartButtonText),
               ),
-            ),
-          ],
-        ),
+
+            ],),
+          )
+
+
+        ],
       ),
     );
   }

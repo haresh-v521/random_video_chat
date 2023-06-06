@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:video_call/core/colors/color_style.dart';
 
-class AuthUIButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String buttonName;
-  const AuthUIButton({Key? key,  required this.buttonName}) : super(key: key);
+  const CustomButton({Key? key,  required this.buttonName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
