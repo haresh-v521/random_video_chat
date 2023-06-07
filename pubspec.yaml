@@ -43,6 +43,7 @@ dependencies:
   google_sign_in: any
   swipe_cards: ^2.0.0+1
   emoji_picker_flutter: ^1.5.4
+  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:

@@ -55,10 +55,7 @@ class AppRoutes {
         builder: (context, state) => const ProfileScreen(),
       ),
 
-      // GoRoute(
-      //   path: root,
-      //   builder: (context, state) => const HistoryScreen(),
-      // ),
+
     ],
   );
 }

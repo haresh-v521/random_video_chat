@@ -30,7 +30,7 @@ class _CustomContainerState extends State<CustomContainer> {
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                        height: 70,
+                        height: 80,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: ColorStyle.whiteColor,

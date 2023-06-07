@@ -11,62 +11,67 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            flex: 7,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 35, left: 25, right: 18, bottom: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(TextStringConstant.enjoyTheText,
-                          style: Theme.of(context).textTheme.displayLarge),
-                      Text(TextStringConstant.convenienceOfText,
-                          style: Theme.of(context).textTheme.displayLarge),
-                      Text(TextStringConstant.communicationText,
-                          style: Theme.of(context).textTheme.displayMedium),
-                      Text(TextStringConstant.easilyAndForFreeText,
-                          style: Theme.of(context).textTheme.displayLarge),
-                      const SizedBox(
-                        height: 5,
+      body:
+
+      Padding(
+        padding: const EdgeInsets.only(bottom: 15),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Stack(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 35, left: 16, right: 16, bottom: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(TextStringConstant.enjoyTheText,
+                            style: Theme.of(context).textTheme.displayLarge),
+                        Text(TextStringConstant.convenienceOfText,
+                            style: Theme.of(context).textTheme.displayLarge),
+                        Text(TextStringConstant.communicationText,
+                            style: Theme.of(context).textTheme.displayMedium),
+                        Text(TextStringConstant.easilyAndForFreeText,
+                            style: Theme.of(context).textTheme.displayLarge),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(TextStringConstant.easilyAndForFreeYouCanGetText,
+                            style: Theme.of(context).textTheme.displaySmall),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Center(
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height / 1.6,
+                      width: MediaQuery.of(context).size.width / 1.25,
+                      child: Image.asset(
+                        ImageStringConstant.welcomePageImage,
                       ),
-                      Text(TextStringConstant.easilyAndForFreeYouCanGetText,
-                          style: Theme.of(context).textTheme.displaySmall),
-                    ],
+                    ),
                   ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 425,
-                  width: MediaQuery.of(context).size.width,
-                  child: Image.asset(
-                    ImageStringConstant.welcomePageImage,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Column(children: [
-              GestureDetector(
-                onTap: () {
-                  return context.go(AppRoutes.signUp);
-                },
-                child:
-                CustomButton(buttonName: TextStringConstant.getStartButtonText),
+                ],
               ),
-
-            ],),
-          )
-
-
-        ],
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: GestureDetector(
+                  onTap: () {
+                    return context.go(AppRoutes.signUp);
+                  },
+                  child: CustomButton(
+                      buttonName: TextStringConstant.getStartButtonText),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -34,35 +34,37 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: Consumer<BottomNavigationProvider>(
           builder: (context, bottomNavProvider, child) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 13, right: 70, left: 70),
+              padding: const EdgeInsets.only(left: 45, right: 45, bottom: 20),
               child: Card(
                 elevation: 20,
-                shadowColor: ColorStyle.primaryColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: BottomNavigationBar(
-                    showSelectedLabels: false,
-                    showUnselectedLabels: false,
-                    items: const <BottomNavigationBarItem>[
-                      BottomNavigationBarItem(
-                          icon: Icon(
-                            Icons.videocam,
-                            size: 40,
-                          ),
-                          label: ''),
-                      BottomNavigationBarItem(
-                          icon: Icon(
-                            Icons.settings,
-                            size: 40,
-                          ),
-                          label: ''),
-                    ],
-                    currentIndex: bottomNavProvider.selectedIndex,
-                    selectedItemColor: ColorStyle.primaryColor,
-                    onTap: bottomNavProvider.onItemTapped,
+                child: SizedBox(
+                  height: 110,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: BottomNavigationBar(
+                      showSelectedLabels: false,
+                      showUnselectedLabels: false,
+                      items: const <BottomNavigationBarItem>[
+                        BottomNavigationBarItem(
+                            icon: Icon(
+                              Icons.videocam,
+                              size: 42,
+                            ),
+                            label: ''),
+                        BottomNavigationBarItem(
+                            icon: Icon(
+                              Icons.settings,
+                              size: 42,
+                            ),
+                            label: ''),
+                      ],
+                      currentIndex: bottomNavProvider.selectedIndex,
+                      selectedItemColor: ColorStyle.primaryColor,
+                      onTap: bottomNavProvider.onItemTapped,
+                    ),
                   ),
                 ),
               ),

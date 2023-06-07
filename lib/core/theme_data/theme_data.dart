@@ -70,11 +70,21 @@ class DataTheme {
           color: ColorStyle.fullBlackColor,
           letterSpacing: 0.3,
         ),
-        titleMedium: GoogleFonts.poppins(
-            color: ColorStyle.greyTextColor,fontSize: 16),
+        titleMedium:
+            GoogleFonts.poppins(color: ColorStyle.greyTextColor, fontSize: 16),
+        headlineMedium: GoogleFonts.poppins(
+            color: ColorStyle.subtitleTextColor, fontSize: 12),
+        labelLarge: GoogleFonts.montserrat(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          color: ColorStyle.primaryColor,
+        ),
+        titleLarge: GoogleFonts.montserrat(
+          fontSize: 14,
+          color: ColorStyle.greyColor,
+        ),
 
-          headlineMedium: GoogleFonts.poppins(
-              color: ColorStyle.subtitleTextColor ,fontSize: 12)
+
       ),
     );
   }
