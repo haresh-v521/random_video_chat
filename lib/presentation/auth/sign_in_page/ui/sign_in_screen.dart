@@ -9,6 +9,7 @@ import 'package:video_call/core/widgets/google_facbook_row_widget.dart';
 import 'package:video_call/core/widgets/gradient_text.dart';
 import 'package:video_call/core/widgets/or_row_widget.dart';
 import 'package:video_call/core/widgets/text_filed_widget.dart';
+import 'package:video_call/core/widgets/willpop_alert_dialog.dart';
 import 'package:video_call/presentation/auth/sign_in_page/business/provider/sign_in_provider.dart';
 
 class SignInPage extends StatefulWidget {
@@ -30,53 +31,60 @@ class _SignInPageState extends State<SignInPage> {
           builder: (context, signInProvider, child) {
             return Form(
               key: signInProvider.formGlobalKey,
-              child:LayoutBuilder(
+              child: LayoutBuilder(
                 builder: (context, constraints) {
-
                   return SingleChildScrollView(
                     child: ConstrainedBox(
-                      constraints:  BoxConstraints(minHeight: constraints.maxHeight),
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
                       child: IntrinsicHeight(
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 28,right: 8,left: 8,bottom: 8),
+                          padding: const EdgeInsets.only(
+                              top: 28, right: 8, left: 8, bottom: 8),
                           child: Column(
                             children: [
                               Column(
                                 children: [
                                   Center(
                                     child: GradientTextWidget(
-                                      gradientTextName: TextStringConstant.signInText,
+                                      gradientTextName:
+                                          TextStringConstant.signInText,
                                     ),
                                   ),
                                   const SizedBox(
                                     height: 15,
                                   ),
                                   CommonTextField(
-                                      hintText: TextStringConstant.usernameText,
-                                      controllerName: signInProvider.signInUsername,
-                                      validationMsg: TextStringConstant.usernameText,
-                                      validate: (value) {
-                                        return TextFieldValidation
-                                            .textEmptyValidation(
-                                          value: value,
-                                          validationMsg:
-                                          TextStringConstant.usernameText,
-                                        );
-                                      }),
+                                    hintText: TextStringConstant.usernameText,
+                                    controllerName:
+                                        signInProvider.signInUsername,
+                                    validationMsg:
+                                        TextStringConstant.usernameText,
+                                    validate: (value) {
+                                      return TextFieldValidation
+                                          .textEmptyValidation(
+                                        value: value,
+                                        validationMsg:
+                                            TextStringConstant.usernameText,
+                                      );
+                                    },
+                                  ),
                                   const SizedBox(
                                     height: 15,
                                   ),
                                   CommonTextField(
                                       hintText: TextStringConstant.passwordText,
-                                      controllerName: signInProvider.signInPassword,
-                                      validationMsg: TextStringConstant.passwordText,
+                                      controllerName:
+                                          signInProvider.signInPassword,
+                                      validationMsg:
+                                          TextStringConstant.passwordText,
                                       hideText: true,
                                       validate: (value) {
                                         return TextFieldValidation
                                             .textEmptyValidation(
                                           value: value,
                                           validationMsg:
-                                          TextStringConstant.passwordText,
+                                              TextStringConstant.passwordText,
                                         );
                                       }),
                                   const SizedBox(
@@ -86,7 +94,8 @@ class _SignInPageState extends State<SignInPage> {
                                   const SizedBox(
                                     height: 25,
                                   ),
-                                  GoogleFacebookRowWidget.googleFacebookRow(),
+                                  GoogleFacebookRowWidget.googleFacebookRow(
+                                      context: context),
                                 ],
                               ),
                               const SizedBox(
@@ -99,20 +108,26 @@ class _SignInPageState extends State<SignInPage> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          Text(TextStringConstant.dontHaveAnyAccountText,
-                                              style:
-                                              Theme.of(context).textTheme.titleLarge),
+                                          Text(
+                                              TextStringConstant
+                                                  .dontHaveAnyAccountText,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleLarge),
                                           const SizedBox(
                                             width: 5,
                                           ),
                                           InkWell(
                                             onTap: () {
-                                              return context.go(AppRoutes.signUp);
+                                              return context
+                                                  .go(AppRoutes.signUp);
                                             },
                                             child: Text(
-                                                TextStringConstant.signUpTextButtonText,
+                                                TextStringConstant
+                                                    .signUpTextButtonText,
                                                 style: Theme.of(context)
                                                     .textTheme
                                                     .labelLarge),
@@ -120,19 +135,21 @@ class _SignInPageState extends State<SignInPage> {
                                         ],
                                       ),
                                       const SizedBox(
-                                        height: 20,
+                                        height: 10,
                                       ),
                                       Center(
                                         child: GestureDetector(
                                           onTap: () {
-                                            if (signInProvider.formGlobalKey.currentState!
+                                            if (signInProvider
+                                                .formGlobalKey.currentState!
                                                 .validate()) {
-                                              return context.go(AppRoutes.bottomBar);
+                                              return context
+                                                  .go(AppRoutes.bottomBar);
                                             }
                                           },
                                           child: CustomButton(
-                                            buttonName:
-                                            TextStringConstant.signInButtonText,
+                                            buttonName: TextStringConstant
+                                                .signInButtonText,
                                           ),
                                         ),
                                       ),
@@ -142,19 +159,20 @@ class _SignInPageState extends State<SignInPage> {
                               ),
                             ],
                           ),
-
                         ),
                       ),
                     ),
                   );
                 },
-              )
-
-
+              ),
             );
           },
         ),
       ),
     );
+  }
+  Future<bool> backScreen() async {
+    WillPopAlertDialog.exitAppDialog(context: context);
+    return true;
   }
 }

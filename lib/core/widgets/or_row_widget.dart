@@ -4,6 +4,7 @@ import 'package:video_call/core/string/text_string_constant.dart';
 
 class OrRowTextWidget
 {
+  /// or text row
   static Widget orRowText()
   {
     return Row(

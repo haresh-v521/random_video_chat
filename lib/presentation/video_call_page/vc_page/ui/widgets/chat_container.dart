@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_call/core/colors/color_style.dart';
 import 'package:video_call/core/string/text_string_constant.dart';
+import 'package:video_call/core/theme_data/theme_extension.dart';
 import 'package:video_call/presentation/video_call_page/vc_page/business/provider/chat_container_provider.dart';
 
 class ChatContainer extends StatefulWidget {
@@ -53,8 +54,7 @@ class _ChatContainerState extends State<ChatContainer> {
                 },
                 child: Container(
                   margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height / 4
-                  ),
+                      top: MediaQuery.of(context).size.height / 4),
                   child: Column(
                     children: [
                       Expanded(
@@ -63,7 +63,7 @@ class _ChatContainerState extends State<ChatContainer> {
                           child: Container(
                             height: 300,
                             decoration: BoxDecoration(
-                              color: Colors.white70,
+                              color: ColorStyle.white70Color,
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
@@ -79,7 +79,7 @@ class _ChatContainerState extends State<ChatContainer> {
                           height: 68,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: ColorStyle.whiteColor,
                             borderRadius: BorderRadius.circular(70),
                           ),
                           child: Padding(
@@ -104,14 +104,12 @@ class _ChatContainerState extends State<ChatContainer> {
                                         }
                                       },
                                       decoration: InputDecoration(
-                                        hintText: TextStringConstant
-                                            .chatTextFieldText,
-                                        border: InputBorder.none,
-                                        hintStyle: TextStyle(
-                                            color: ColorStyle.lightGreyColor,
-                                            letterSpacing: 6,
-                                            fontSize: 18),
-                                      ),
+                                          hintText: TextStringConstant
+                                              .chatTextFieldText,
+                                          border: InputBorder.none,
+                                          hintStyle: Theme.of(context)
+                                              .extension<VideoCallTheme>()!
+                                              .hintText),
                                     ),
                                   ),
                                 ),

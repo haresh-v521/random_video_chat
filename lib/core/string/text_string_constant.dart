@@ -61,5 +61,9 @@ class TextStringConstant {
   static String timeForCallingText = "7:00 PM";
 
   /// call active and call rejected dialog text
- static String dialogText = "Liked";
+  static String dialogText = "Liked";
+
+  /// loader dialog text
+ static String loaderDialogTitleText = "Please Wait ..";
+
 }

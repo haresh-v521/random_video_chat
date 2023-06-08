@@ -34,14 +34,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: Consumer<BottomNavigationProvider>(
           builder: (context, bottomNavProvider, child) {
             return Padding(
-              padding: const EdgeInsets.only(left: 45, right: 45, bottom: 20),
+              padding: const EdgeInsets.only(left: 62, right: 62, bottom: 20),
               child: Card(
                 elevation: 20,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: SizedBox(
-                  height: 110,
+                  height: 78,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(30),
                     child: BottomNavigationBar(
@@ -51,13 +51,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         BottomNavigationBarItem(
                             icon: Icon(
                               Icons.videocam,
-                              size: 42,
+                              size: 40,
                             ),
                             label: ''),
                         BottomNavigationBarItem(
                             icon: Icon(
                               Icons.settings,
-                              size: 42,
+                              size: 40,
                             ),
                             label: ''),
                       ],

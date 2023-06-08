@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:video_call/core/colors/color_style.dart';
+import 'package:video_call/core/theme_data/theme_extension.dart';
 
 class DataTheme {
   themeData() {
     return ThemeData(
+      extensions: <ThemeExtension<dynamic>>[
+        VideoCallTheme().copyWith(
+          hintText: TextStyle(
+              color: ColorStyle.lightGreyColor,
+              letterSpacing: 6,
+              fontSize: 18),
+        )
+      ],
       useMaterial3: true,
       scaffoldBackgroundColor: ColorStyle.backgroundColor,
       primaryColor: ColorStyle.primaryColor,
@@ -83,8 +92,6 @@ class DataTheme {
           fontSize: 14,
           color: ColorStyle.greyColor,
         ),
-
-
       ),
     );
   }

@@ -15,4 +15,5 @@ class ColorStyle
    static Color fullBlackColor = Colors.black;
    static Color greyTextColor = const Color(0xff444444);
    static Color subtitleTextColor = const Color(0xff959595);
+   static Color white70Color = Colors.white70;
 }
