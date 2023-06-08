@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:video_call/core/string/text_string_constant.dart';
 
 
 class WillPopAlertDialog
@@ -13,7 +14,7 @@ class WillPopAlertDialog
         return AlertDialog(
           title: Center(
             child: Text(
-              "Are you sure you want to exit",
+              TextStringConstant.areYouSureExitAppText,
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
@@ -25,13 +26,13 @@ class WillPopAlertDialog
               onPressed: (){
                 Navigator.pop(context);
               },
-              child: Text("No"),
+              child: Text(TextStringConstant.noText),
             ),
             ElevatedButton(
               onPressed: (){
                 SystemNavigator.pop();
               },
-              child: Text("Yes"),
+              child: Text(TextStringConstant.yesText),
             ),
           ],
         );

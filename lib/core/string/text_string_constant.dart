@@ -64,6 +64,10 @@ class TextStringConstant {
   static String dialogText = "Liked";
 
   /// loader dialog text
- static String loaderDialogTitleText = "Please Wait ..";
+  static String loaderDialogTitleText = "Please Wait ..";
 
+  /// will pop scope dialog text
+  static String areYouSureExitAppText = "Are you sure you want to exit";
+  static String yesText = "Yes";
+  static String noText = "No";
 }
