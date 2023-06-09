@@ -32,5 +32,4 @@ class ImageStringConstant
   /// profile image picker images
   static String imagePickerGalleryImage="assets/images/gallery.png";
   static String imagePickerCameraImage="assets/images/camera.png";
-
 }

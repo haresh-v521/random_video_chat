@@ -54,8 +54,6 @@ class AppRoutes {
         path: profileScreen,
         builder: (context, state) => const ProfileScreen(),
       ),
-
-
     ],
   );
 }

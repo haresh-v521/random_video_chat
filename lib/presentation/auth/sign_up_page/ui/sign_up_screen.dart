@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:video_call/core/routes/go_routes.dart';
@@ -120,27 +119,28 @@ class _SignUpPageState extends State<SignUpPage> {
                                       height: 15,
                                     ),
                                     CommonTextField(
-                                        hintText: TextStringConstant
-                                            .repeatPasswordText,
-                                        controllerName:
-                                            signUpProvider.signUpRepeatPassword,
-                                        validationMsg: TextStringConstant
-                                            .repeatPasswordText,
-                                        hideText: true,
-                                        validate: (value) {
-                                          if (value !=
-                                              signUpProvider
-                                                  .signUpPassword.text) {
-                                            return TextStringConstant
-                                                .passwordErrorMsg;
-                                          }
-                                          return TextFieldValidation
-                                              .textEmptyValidation(
-                                            value: value,
-                                            validationMsg: TextStringConstant
-                                                .repeatPasswordText,
-                                          );
-                                        }),
+                                      hintText:
+                                          TextStringConstant.repeatPasswordText,
+                                      controllerName:
+                                          signUpProvider.signUpRepeatPassword,
+                                      validationMsg:
+                                          TextStringConstant.repeatPasswordText,
+                                      hideText: true,
+                                      validate: (value) {
+                                        if (value !=
+                                            signUpProvider
+                                                .signUpPassword.text) {
+                                          return TextStringConstant
+                                              .passwordErrorMsg;
+                                        }
+                                        return TextFieldValidation
+                                            .textEmptyValidation(
+                                          value: value,
+                                          validationMsg: TextStringConstant
+                                              .repeatPasswordText,
+                                        );
+                                      },
+                                    ),
                                     const SizedBox(
                                       height: 15,
                                     ),
@@ -230,10 +230,8 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
-
   Future<bool> backScreen() async {
     WillPopAlertDialog.exitAppDialog(context: context);
     return true;
   }
-
 }

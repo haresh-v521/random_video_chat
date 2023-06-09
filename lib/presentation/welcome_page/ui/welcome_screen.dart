@@ -19,9 +19,7 @@ class _WelcomePageState extends State<WelcomePage> {
     return WillPopScope(
       onWillPop: backScreen,
       child: Scaffold(
-        body:
-
-        Padding(
+        body: Padding(
           padding: const EdgeInsets.only(bottom: 15),
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
@@ -84,7 +82,6 @@ class _WelcomePageState extends State<WelcomePage> {
       ),
     );
   }
-
   Future<bool> backScreen() async {
     WillPopAlertDialog.exitAppDialog(context: context);
     return true;

@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_call/core/string/text_string_constant.dart';
 
-
 class WillPopAlertDialog
 {
-  /// willpop scope dialog
+  /// willPop scope dialog
   static Future exitAppDialog({required BuildContext context}) {
     return showDialog(
-      // barrierDismissible: false,
+      barrierDismissible: false,
       context: context,
       builder: (context) {
         return AlertDialog(
